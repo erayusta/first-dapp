@@ -1,4 +1,4 @@
-# first-dapp
+# First Ethereum Dapp
 Create Basic Dapp with Solidity, Hardhat, React and Metamask
 
 
