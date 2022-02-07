@@ -3,19 +3,19 @@ import { useState } from 'react';
 import { ethers } from 'ethers'
 import Greeter from './artifacts/contracts/Greeter.sol/Greeter.json'
 
-// Update with the contract address logged out to the CLI when it was deployed 
+// Deploy sonrası verdiği adresi buraya giriyoruz
 const greeterAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
 
 function App() {
-  // store greeting in local state
+  // local state de kayıtları tutuyoruz.
   const [greeting, setGreetingValue] = useState()
 
-  // request access to the user's MetaMask account
+  // Metamask izni için kullanıyoruz.
   async function requestAccount() {
     await window.ethereum.request({ method: 'eth_requestAccounts' });
   }
 
-  // call the smart contract, read the current greeting value
+  // smart contract ı çağırma mevcut mesajı okumak için 
   async function fetchGreeting() {
     if (typeof window.ethereum !== 'undefined') {
       const provider = new ethers.providers.Web3Provider(window.ethereum)
@@ -29,7 +29,7 @@ function App() {
     }    
   }
 
-  // call the smart contract, send an update
+  // smart kontratı çağır ve mesajı güncelle
   async function setGreeting() {
     if (!greeting) return
     if (typeof window.ethereum !== 'undefined') {
